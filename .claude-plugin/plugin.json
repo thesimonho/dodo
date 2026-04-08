@@ -1,7 +1,7 @@
 {
   "name": "dodo",
   "version": "0.0.0",
-  "description": "Do [Do]cumentation Updates",
+  "description": "do [do]cumentation.",
   "author": {
     "name": "Simon Ho",
     "email": "simonho.ubc@gmail.com",
@@ -10,5 +10,12 @@
   "license": "MIT",
   "homepage": "https://thesimonho.github.io/dodo/",
   "repository": "https://github.com/thesimonho/dodo",
-  "keywords": ["agents", "claude code", "codex", "skill", "documentation"]
+  "keywords": [
+    "agents",
+    "claude code",
+    "codex",
+    "skill",
+    "documentation",
+    "open source"
+  ]
 }
