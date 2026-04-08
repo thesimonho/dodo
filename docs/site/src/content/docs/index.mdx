@@ -1,0 +1,46 @@
+---
+title: dodo
+description: Keep your project documentation up to date with a single command.
+template: splash
+hero:
+  tagline: Pronounced "doo-doo". You're welcome.
+  actions:
+    - text: Get Started
+      link: /dodo/getting-started/
+      icon: right-arrow
+    - text: View on GitHub
+      link: https://github.com/thesimonho/dodo
+      icon: external
+      variant: minimal
+---
+
+import { Card, CardGrid } from '@astrojs/starlight/components';
+
+## What it does
+
+You're working on a project. Your documentation is never up to date. Different people need different things from your docs, and keeping all of them fresh is a chore nobody wants to do.
+
+dodo looks at what documentation you have (or don't have), and either updates it or offers to create it.
+
+```
+/dodo
+```
+
+That's it.
+
+## Four audiences, one command
+
+<CardGrid>
+  <Card title="Codemaps" icon="seti:json">
+    Structured codebase maps so AI agents can navigate your project without reading every file.
+  </Card>
+  <Card title="References" icon="open-book">
+    Architecture docs, guides, plans, and TODOs for contributors.
+  </Card>
+  <Card title="Site" icon="laptop">
+    A documentation website for end users, deployed to GitHub Pages.
+  </Card>
+  <Card title="Plugin" icon="puzzle">
+    Turn your docs into skills that developers add to their AI agents.
+  </Card>
+</CardGrid>

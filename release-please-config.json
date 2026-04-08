@@ -3,7 +3,7 @@
     ".": {
       "release-type": "simple",
       "include-component-in-tag": false,
-      "extra-files": [".claude-plugin/plugin.json"]
+      "extra-files": [".claude-plugin/plugin.json", "docs/site/package.json"]
     }
   }
 }
