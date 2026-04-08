@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/thesimonho/dodo/compare/v1.1.0...v1.2.0) (2026-04-08)
+
+
+### Features
+
+* add Astro Starlight documentation site ([#8](https://github.com/thesimonho/dodo/issues/8)) ([440cc05](https://github.com/thesimonho/dodo/commit/440cc059bcaaa853d854e1e23cefcb172b711ebc))
+* add invocation examples to dodo skill description ([#6](https://github.com/thesimonho/dodo/issues/6)) ([1acd787](https://github.com/thesimonho/dodo/commit/1acd78749533ec190e73631968be9e5c7a40e619))
+
 ## [1.1.0](https://github.com/thesimonho/dodo/compare/v1.0.0...v1.1.0) (2026-04-08)
 
 
