@@ -1,13 +1,7 @@
-name: Deploy Documentation
+name: Deploy Site
 on:
   push:
     branches: [main]
-    paths:
-      - "docs/site/**"
-      - "docs/plugin/**"
-      - "docs/openapi/**"
-      - "CHANGELOG.md"
-      - "CONTRIBUTING.md"
   workflow_dispatch:
 permissions:
   contents: read
@@ -21,12 +15,6 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v6
-      - uses: actions/setup-go@v6
-        with:
-          go-version-file: go.mod
-          cache: true
-      - name: Install gomarkdoc
-        run: go install github.com/princjef/gomarkdoc/cmd/gomarkdoc@latest
       - uses: actions/setup-node@v6
         with:
           node-version: "24"
@@ -34,8 +22,6 @@ jobs:
           cache-dependency-path: docs/site/package-lock.json
       - name: Install dependencies
         run: npm --prefix docs/site install
-      - name: Generate docs
-        run: ./docs/site/generate-docs.sh
       - name: Build docs site
         run: npm --prefix docs/site run build
       - name: Upload Pages artifact

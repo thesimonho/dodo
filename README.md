@@ -4,55 +4,83 @@
 
 How many times have you said to an agent "update docs"? Now you can just `/dodo`
 
----
+## The problem
 
-Gist (rewrite and replace all):
+You're working on a project. Your documentation is never up to date. There are too many people that need too many different things from your docs...
 
-set of skills and agents. distributed via both claude code marketplace as a plugin...
+- **AI agents** need structured codemaps so they can navigate your codebase without reading every file
+- **Contributors** need reference material, development guides, and plans
+- **End Users** need a documentation website that teaches them how to use your app
+- **Developers** want to just give their agent your code and say "make it work"
 
-the problem: project documentation ends up being scattered. it would be cool if you were working on a project and you had a single command/skill/agent you could use that creates/manages/updates your documentation.
+Ain't nobody got time for that.
 
-the plugin solves this specific scenario:
+## The solution
 
-- you are a developer working on a project
-- you want to create project documentation that helps different groups of users
+```
+/dodo
+```
 
-what types of "documentation" would be useful for an open source project to actually have? specifically:
+It looks at what documentation you have (or don't have), and either updates it or offers to create it.
 
-- codemaps for agents (eg `docs/codemaps/`)
-- references for contributors (eg `docs/`)
-- website for users (eg `docs/site/`)
-- plugins and skills for users (eg `docs/plugin/`)
+## What it manages
 
-dodo works with sequential fallback. it will first try to update, if it doesnt exist, it will ask and create. there is only a single `/dodo [type]` command
-
-- update: will update that documentation type
-- create: if the documentation type doesn't exist, ask the user if they want to create it and asks questions to brainstorm the ideal structure for the project
-
-the command could either be `/dodo:do [type]` (claude) or `/dodo [type]` (skills, other agents). depends on installation method. `/dodo` should work for both.
-
-if no type is specified, it will default to updating all documentation types.
-
-examples:
-
-- `/dodo` (everything)
-- `/dodo codemaps`
-- `/dodo:do the site FAQ`
-
----
+| Type           | Audience     | Default location | What it does                                                    |
+| -------------- | ------------ | ---------------- | --------------------------------------------------------------- |
+| **References** | Contributors | `docs/`          | Architecture docs, guides, plans, TODOs                         |
+| **Codemaps**   | AI agents    | `docs/codemaps/` | Structured codebase maps so agents can actually find things     |
+| **Site**       | End users    | `docs/site/`     | An end user documentation website deployed to GitHub Pages      |
+| **Plugin**     | Developers   | `docs/plugin/`   | Turns your docs into skills that developers add to their agents |
 
 ## Installation
 
-Add the marketplace in Claude Code and select the plugin in the UI:
+### Claude Code plugin
 
-```
+Install via the marketplace...
+
+Add the marketplace:
+
+```sh
 /plugin marketplace add thesimonho/artificial-jellybeans
 ```
 
-Or install the plugin directly:
+Add the plugin:
 
-```
+```sh
 /plugin install dodo@artificial-jellybeans
 ```
 
-or downloadable via `npx skills add thesimonho/dodo` (<https://github.com/vercel-labs/skills>)
+Skills are namespaced: `/dodo:do`, `/dodo:do codemaps`, etc.
+
+### npx skills
+
+```sh
+npx skills add thesimonho/dodo
+```
+
+Skills are flat: `/dodo`, `/dodo codemaps`, etc.
+
+Both methods give you the same functionality, just different invocation syntax. Pick whichever fits your setup.
+
+## Usage
+
+Depending on your installation method, you can use either `/dodo [type]` or `/dodo:do [type]`.
+
+```sh
+/dodo                        # update everything
+/dodo site                   # create or update the docs site
+/dodo references and site    # update multiple types
+/dodo:do the site FAQ        # update a specific part
+```
+
+If the documentation type doesn't exist yet, dodo asks if you want to create it and walks you through the setup. If it does exist, it updates it based on the current state of your project.
+
+## How it works
+
+dodo uses a sequential fallback for each documentation type:
+
+1. **Find** — checks the default location, then agent memory, then actively searches the codebase
+2. **Update** — if docs exist, updates them against the current project state
+3. **Create** — if docs don't exist, asks you first, then walks through setup
+
+It never creates documentation you didn't ask for. It never rewrites your content without telling you what changed. It does, however, have strong opinions about not letting your docs go stale.

@@ -2,35 +2,108 @@
 
 Default directory: `docs/site/`
 
-Builds and maintains a static website for the project, deployed to GitHub Pages.
+A public-facing documentation website for end users, deployed to GitHub Pages. This is the polished, structured documentation that users see when they visit your project's docs site.
 
-Offer the user 3 site generator options:
+The fundamental principle: the site is for end users, not contributors or developers. Consider who the end user of the project is and what they would actually want to know. If the target demographic is not tech-savvy, focus more on guides, tutorials and explanations. If the audience is technical developers, put more emphasis on the details.
 
-- Astro Starlight (default)
-- VitePress (if in the vite ecosystem already)
-- Docusaurus
+## Generator selection
 
-## Create
+Offer the user 3 options. If they have no preference, default to Astro Starlight.
 
-Websearch for modern best practices for that generator. List some options for common plugin integrations that might be useful for their project.
+| Generator           | When to recommend                               | Why                                                                                         |
+| ------------------- | ----------------------------------------------- | ------------------------------------------------------------------------------------------- |
+| **Astro Starlight** | Default choice. Best for standalone docs sites. | Built-in search, i18n, sidebar generation, accessibility, excellent defaults out of the box |
+| **VitePress**       | Project already uses the Vite or Vue ecosystem  | Vue component support in markdown, fast HMR, familiar config for Vue developers             |
+| **Docusaurus**      | Project already uses the React ecosystem        | MDX support, rich plugin ecosystem, versioned documentation, React component embedding      |
 
-Create an automated github workflow that builds the site and deploys it to GitHub Pages. If they have the GitHub CLI installed, you can use the `gh` command to set the site up for them.
+After the user selects a generator, web search for the latest version, scaffolding command, and current best practices. Generator ecosystems move fast — don't rely on cached knowledge.
 
-Scan the project and develop a list of pages that would be useful to include in the site.
+## Create flow
 
-Propose a list of pages/sections. Ask for feedback and refine the list.
+1. **Select generator.** Present the table above. Ask the user which they prefer.
 
-### Example site sections
+2. **Scaffold the site.** Web search for the chosen generator's current scaffolding command and run it inside `docs/site/`. Examples:
+   - Starlight: `npm create astro@latest -- --template starlight`
+   - VitePress: `npx vitepress init`
+   - Docusaurus: `npx create-docusaurus@latest`
 
-- Getting Started
-- Installation
-- Features
-- Usage
-- References / API
-- FAQ
+3. **Search for relevant plugins.** Web search for plugins and integrations that match what the project does. Evaluate and suggest based on what you find in the codebase:
+   - HTTP API present (e.g., Express, Fastify, Hono routes)? Look for an OpenAPI/Swagger docs plugin.
+   - CLI tool present (e.g., `bin/` scripts, commander/yargs config)? Look for auto-generated CLI reference plugins.
+   - TypeScript library? Look for TypeDoc or API extractor integrations.
+   - Component library? Look for live playground or Storybook embed plugins.
+   - Present options to the user. Install the ones they approve.
 
-## Update
+4. **Propose page structure.** Scan the project (README, reference docs, source code) and propose a set of pages and sections. Start from these common sections and adapt to the project:
+   - Getting Started / Quick Start
+   - Installation
+   - Core Concepts / Features
+   - Usage Guides (one per major feature)
+   - API Reference (if applicable)
+   - Configuration
+   - FAQ
+   - Contributing
 
-Update the site with the latest changes from the project as new features get added
+5. **Refine with the user.** Present the proposed page list. Ask what to add, remove, or restructure. Don't generate content until the structure is approved.
 
-If project features get added, search for ecosystem plugins that would integrate well with the feature. Example: HTTP API was added, there might be an OpenAPI plugin that can generate API docs automatically for the site
+6. **Generate initial content.** Pull from existing sources:
+   - README for the getting started / overview pages
+   - Reference docs (if they exist) for deeper guides
+   - Code comments and docstrings for API reference pages
+   - Don't fabricate information. If the source material doesn't exist for a page, write a skeleton with TODOs and tell the user what's missing.
+
+7. **Create the GitHub Actions deployment workflow.** Generate `.github/workflows/site.yml` (or update it if one already exists):
+
+   The workflow should:
+   - Trigger on pushes to main that touch `docs/site/**`
+   - Install dependencies and build the site using the generator's build command
+   - Deploy to GitHub Pages using `actions/deploy-pages`
+   - Use `actions/upload-pages-artifact` to bundle the build output
+
+   Key details:
+   - Set `permissions: pages: write, contents: read`
+   - Use environment `github-pages` with the pages URL
+   - The build output directory varies by generator (Starlight: `dist/`, VitePress: `.vitepress/dist/`, Docusaurus: `build/`)
+
+8. **Configure GitHub Pages.** If the `gh` CLI is available and authenticated:
+   - Enable Pages in repo settings: `gh api repos/{owner}/{repo}/pages -X POST -f source.branch=main -f build_type=workflow`
+   - Verify the site URL and report it to the user
+   - If `gh` is not available, tell the user what manual steps they need to take in the GitHub repo settings (Settings > Pages > Source > GitHub Actions)
+
+## Update flow
+
+1. **Read current site structure.** Check the sidebar configuration file and page listing to understand what currently exists.
+   - Starlight: `astro.config.mjs` sidebar config
+   - VitePress: `.vitepress/config.ts` sidebar config
+   - Docusaurus: `sidebars.js`
+
+2. **Compare against project state.** Identify:
+   - New features or modules that need documentation pages
+   - Existing pages with content that no longer matches the codebase
+   - Broken internal links between pages
+   - Missing sections on existing pages (e.g., a new CLI command not listed in the CLI reference)
+   - Outdated code examples or screenshots
+
+3. **Update existing pages.** Fix stale content, update examples, correct broken links.
+
+4. **Propose new pages.** If significant new features exist without docs, propose new pages to the user. Don't create them without asking.
+
+5. **Check for ecosystem plugins.** Web search for new plugins or integrations that would benefit the site given recent project changes:
+   - New HTTP API added? Suggest an OpenAPI docs plugin if one wasn't installed at creation time.
+   - New i18n support? Suggest the generator's i18n plugin.
+   - Growing FAQ? Suggest a search plugin if one isn't configured.
+
+6. **Update navigation.** If pages were added or removed, update the sidebar/navigation configuration.
+
+7. **Check the deployment workflow.** Verify the GitHub Actions workflow is current:
+   - Are action versions up to date?
+   - Does the build command still match the generator's current CLI?
+   - Is the output directory still correct?
+
+## Principles
+
+- **If a site already exists, use it.** Even if it uses a generator not in the recommended list (Hugo, MkDocs, Sphinx, etc.), work with what's there. Don't suggest migration unless the user asks.
+- **The site must be deployable from a clean checkout.** No local-only dependencies, no manual build steps that aren't in the workflow.
+- **Respect existing design choices.** Don't change themes, colors, or branding unless asked. The user chose those intentionally.
+- **Write for end users, not contributors.** Site content explains how to use the project. Contributor docs belong in references.
+- **Don't fabricate.** If you don't have source material for a page, write a clear skeleton and tell the user what content is needed. A page with honest TODOs is better than a page with invented information.
