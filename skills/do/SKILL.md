@@ -1,6 +1,6 @@
 ---
 name: dodo
-description: Use proactively to create and update project documentation. Manages codemaps (for agents), references (for contributors), documentation sites (for users), and plugin/skills scaffolding (for agent users and developers). Run with no arguments to update everything, or specify a documentation type to update.
+description: Use proactively to create and update project documentation. Manages codemaps (for agents), references (for contributors), documentation sites (for users), and plugin/skills scaffolding (for agent users and developers). Run with no arguments to update everything, or specify a documentation type to update. Users may invoke this as "/dodo", "dodo", "dodocs", "update the docs", "generate a codemap", "update the reference docs", or similar phrasing — trigger this skill whenever the user's intent is to create or update project documentation.
 argument-hint: "[codemaps, references, site, plugin]"
 ---
 
