@@ -49,6 +49,8 @@ For each requested documentation type, follow this sequential fallback:
 4. **If the user says yes → create.** Read the type's reference file and follow its create flow.
 5. **If the user says no → skip.** Move to the next type.
 
+When updating documentation, make sure to verify all mentioned files exist and fix any broken links.
+
 Never create documentation without asking first. The user may not want or need every type.
 
 ## Priority order
