@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/thesimonho/dodo/compare/v1.2.0...v1.3.0) (2026-04-09)
+
+
+### Features
+
+* add plugin examples for Starlight, VitePress, and Docusaurus ([#9](https://github.com/thesimonho/dodo/issues/9)) ([1918cf0](https://github.com/thesimonho/dodo/commit/1918cf0f0b070c1f4b5b455d498e472241bb32f5))
+
 ## [1.2.0](https://github.com/thesimonho/dodo/compare/v1.1.0...v1.2.0) (2026-04-08)
 
 
