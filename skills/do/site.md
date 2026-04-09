@@ -32,9 +32,56 @@ After the user selects a generator, web search for the latest version, scaffoldi
    - CLI tool present (e.g., `bin/` scripts, commander/yargs config)? Look for auto-generated CLI reference plugins.
    - TypeScript library? Look for TypeDoc or API extractor integrations.
    - Component library? Look for live playground or Storybook embed plugins.
-   - Present options to the user. Install the ones they approve.
+   - Present options to the user. Only install the ones they approve.
 
-4. **Propose page structure.** Scan the project (README, reference docs, source code) and propose a set of pages and sections. Start from these common sections and adapt to the project:
+   **Example plugins by generator** (web search for the latest versions before installing):
+
+   <details>
+   <summary>Astro Starlight</summary>
+
+   | Plugin                     | What it does                                                  |
+   | -------------------------- | ------------------------------------------------------------- |
+   | `starlight-openapi`        | Generates API reference pages from OpenAPI/Swagger specs      |
+   | `starlight-typedoc`        | Generates pages from TypeScript source using TypeDoc          |
+   | `starlight-sidebar-topics` | Splits docs into separate sections, each with its own sidebar |
+   | `@astrojs/sitemap`         | Generates a sitemap for SEO                                   |
+   | `starlight-llms-txt`       | Adds an `llms.txt` file for AI agent consumption              |
+   | `starlight-giscus`         | Adds Giscus comment threads to doc pages                      |
+   | `starlight-videos`         | Embeds video guides and courses alongside docs                |
+
+   </details>
+
+   <details>
+   <summary>VitePress</summary>
+
+   | Plugin                                                | What it does                                                             |
+   | ----------------------------------------------------- | ------------------------------------------------------------------------ |
+   | `vitepress-openapi`                                   | Generates API docs from OpenAPI specs with an interactive theme          |
+   | `typedoc-plugin-markdown` + `typedoc-vitepress-theme` | Generates TypeScript API docs as VitePress-compatible Markdown           |
+   | `vitepress-sidebar`                                   | Auto-generates sidebar config from file structure                        |
+   | `vitepress-plugin-mermaid`                            | Renders interactive, zoomable Mermaid diagrams                           |
+   | `vitepress-plugin-llms`                               | Generates `llms.txt` for AI-friendly docs (used by Vite, Vue.js, Vitest) |
+   | `@nolebase/vitepress-plugin-enhanced-readabilities`   | Inline link previews, heading highlights, SEO meta generation            |
+   | `vitepress-i18n`                                      | Simplifies translation of default theme text and search                  |
+
+   </details>
+
+   <details>
+   <summary>Docusaurus</summary>
+
+   | Plugin                                                             | What it does                                                                       |
+   | ------------------------------------------------------------------ | ---------------------------------------------------------------------------------- |
+   | `docusaurus-plugin-openapi-docs` + `docusaurus-theme-openapi-docs` | Generates API reference from OpenAPI/Swagger specs with interactive try-it console |
+   | `docusaurus-plugin-typedoc-api`                                    | Generates TypeScript API pages from source using TypeDoc                           |
+   | `docusaurus-search-local`                                          | Offline/local search without external services                                     |
+   | `@markprompt/docusaurus-theme-search`                              | AI-powered docs search                                                             |
+   | `docusaurus-plugin-sass`                                           | SCSS/Sass support for custom styling                                               |
+   | `@docusaurus/plugin-ideal-image`                                   | Optimised responsive images with lazy loading                                      |
+   | `docusaurus-plugin-auto-sidebars`                                  | Auto-generates sidebar from file structure                                         |
+
+   </details>
+
+4. **Propose page structure.** Scan the project (README, reference docs, source code) and propose a set of pages and sections. Start from these common sections and adapt to the project and chosen plugins:
    - Getting Started / Quick Start
    - Installation
    - Core Concepts / Features
