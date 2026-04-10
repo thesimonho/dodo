@@ -39,6 +39,15 @@ If documentation isn't at the default location:
 2. If not in memory, dispatch the `dodo:find` agent to search the codebase. It will store the locations in memory for future invocations.
 3. If the find agent reports "not found" for a type, that type doesn't exist yet — proceed to the create flow.
 
+## Preparing data
+
+To make the update process faster, get a list of changed files for the commit/branch/feature you want to update.
+If the user asks for a general update, you will need a change list for the last 10 commits across the entire project instead.
+
+Pass this along to the agent doing the documentation update, along with a description of the changes and summary of the relevant conversation history.
+
+This will help the agent know which files to examine for changes.
+
 ## Create vs update
 
 For each requested documentation type, follow this sequential fallback:
