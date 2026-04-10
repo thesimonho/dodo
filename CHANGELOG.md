@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.1](https://github.com/thesimonho/dodo/compare/v1.3.0...v1.3.1) (2026-04-10)
+
+
+### Bug Fixes
+
+* get change list to speed up updates ([#11](https://github.com/thesimonho/dodo/issues/11)) ([5615619](https://github.com/thesimonho/dodo/commit/561561988ef5f310881a5436defea5722ba35553))
+
 ## [1.3.0](https://github.com/thesimonho/dodo/compare/v1.2.0...v1.3.0) (2026-04-09)
 
 
