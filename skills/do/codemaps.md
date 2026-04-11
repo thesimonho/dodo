@@ -1,5 +1,7 @@
 # Codemaps
 
+Default model: `haiku` — when dispatched as a subagent, use `model: "haiku"` unless the user specifies otherwise.
+
 Default directory: `docs/codemaps/`
 
 Codemaps are structured maps of the codebase designed for AI agents. They let an agent understand project architecture, find the right files, and navigate between modules — without reading every file in the repository.

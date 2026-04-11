@@ -1,5 +1,7 @@
 # Public Website
 
+Default model: `sonnet` — when dispatched as a subagent, use `model: "sonnet"` unless the user specifies otherwise.
+
 Default directory: `docs/site/`
 
 A public-facing documentation website for end users, deployed to GitHub Pages. This is the polished, structured documentation that users see when they visit your project's docs site.
