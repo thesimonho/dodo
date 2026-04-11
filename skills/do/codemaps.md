@@ -174,6 +174,8 @@ If no external tools are available, fall back to reading source files directly a
 
 ## Update flow
 
+Important: if you're searching or reading documents, it's much faster to do it in parallel.
+
 1. Read the existing barrel index to understand current coverage.
 2. Detect available AST parsers (see above).
 3. Compare against the current project structure:

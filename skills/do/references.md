@@ -49,6 +49,8 @@ Reference creation is user-directed. These are the user's notes and plans — do
 
 Keeping references fresh is the single most important thing this documentation type does. Stale docs are actively harmful — they mislead contributors and erode trust in all documentation.
 
+Important: if you're searching or reading documents, it's much faster to do it in parallel.
+
 1. Read all existing reference docs in the documentation directory.
 2. Cross-reference each doc against the current codebase state. Check for:
    - **Dead file paths**: do paths mentioned in docs still exist? Use Glob to verify.
