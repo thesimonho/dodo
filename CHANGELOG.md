@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.2](https://github.com/thesimonho/dodo/compare/v1.3.1...v1.3.2) (2026-04-11)
+
+
+### Bug Fixes
+
+* add default model configuration for subagents ([#13](https://github.com/thesimonho/dodo/issues/13)) ([73c8036](https://github.com/thesimonho/dodo/commit/73c8036461a9d975b44b2a1a4434aceedee9555c))
+
 ## [1.3.1](https://github.com/thesimonho/dodo/compare/v1.3.0...v1.3.1) (2026-04-10)
 
 
