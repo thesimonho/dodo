@@ -192,6 +192,8 @@ Don't suggest all of these — only the ones that match what the project actuall
 
 ## Update flow
 
+Important: if you're searching or reading documents, it's much faster to do it in parallel.
+
 1. **Read all skill and agent files.** Catalog every `SKILL.md` and agent markdown file.
 
 2. **Check frontmatter currency.** Web search for the latest frontmatter specification. Are there new fields available that should be added? Are existing fields using deprecated syntax?

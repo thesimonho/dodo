@@ -121,6 +121,8 @@ After the user selects a generator, web search for the latest version, scaffoldi
 
 ## Update flow
 
+Important: if you're searching or reading documents, it's much faster to do it in parallel.
+
 1. **Read current site structure.** Check the sidebar configuration file and page listing to understand what currently exists.
    - Starlight: `astro.config.mjs` sidebar config
    - VitePress: `.vitepress/config.ts` sidebar config
