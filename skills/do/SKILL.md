@@ -84,6 +84,7 @@ When updating 2 or more types, use subagents to divide the work:
 - Each subagent should read the relevant reference file for its instructions.
 - Priority order determines dispatch sequence — codemaps first, then references, then site, then plugin.
 - After all subagents complete, summarize what was created or updated across all types.
+- **Model defaults**: Use `model: "haiku"` for codemaps subagents. Use `model: "sonnet"` for all other subagents (references, site, plugin). The user may override these per invocation.
 
 For single-type requests, work directly without subagents.
 

@@ -1,0 +1,21 @@
+{
+  "image": "ghcr.io/thesimonho/warden:latest",
+  "skipPermissions": true,
+  "networkMode": "restricted",
+  "runtimes": [
+    "node"
+  ],
+  "agents": {
+    "claude-code": {
+      "allowedDomains": [
+        "*.anthropic.com",
+        "*.github.com",
+        "*.githubusercontent.com",
+        "archive.ubuntu.com",
+        "security.ubuntu.com",
+        "registry.npmjs.org",
+        "registry.yarnpkg.com"
+      ]
+    }
+  }
+}

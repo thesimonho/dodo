@@ -1,5 +1,7 @@
 # Plugin and Skills
 
+Default model: `sonnet` — when dispatched as a subagent, use `model: "sonnet"` unless the user specifies otherwise.
+
 Default directory: `docs/plugin/`
 
 Scaffold and maintain a Claude Code plugin, a Vercel npx skills package, or both. This documentation type handles the meta-problem: helping a project distribute its own AI-powered skills and agents.

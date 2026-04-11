@@ -1,5 +1,7 @@
 # References
 
+Default model: `sonnet` — when dispatched as a subagent, use `model: "sonnet"` unless the user specifies otherwise.
+
 Default directory: `docs/`
 
 References are contributor-facing documentation — architecture decisions, development guides, project plans, working notes, and anything else that helps humans understand and contribute to the project. They capture knowledge that isn't derivable from reading the code alone.
