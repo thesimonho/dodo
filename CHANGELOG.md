@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.3](https://github.com/thesimonho/dodo/compare/v1.3.2...v1.3.3) (2026-04-11)
+
+
+### Bug Fixes
+
+* add note about parallel search ([#15](https://github.com/thesimonho/dodo/issues/15)) ([0f7d706](https://github.com/thesimonho/dodo/commit/0f7d706db4b0f4be761bb5797618354c41671423))
+
 ## [1.3.2](https://github.com/thesimonho/dodo/compare/v1.3.1...v1.3.2) (2026-04-11)
 
 
