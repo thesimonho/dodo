@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.0](https://github.com/thesimonho/dodo/compare/v1.3.3...v1.4.0) (2026-07-05)
+
+
+### Features
+
+* **references:** add doc lifecycle & archiving ([#18](https://github.com/thesimonho/dodo/issues/18)) ([aa91b42](https://github.com/thesimonho/dodo/commit/aa91b425b7086edbfa6a5bef1b07c11a93afec8f))
+
 ## [1.3.3](https://github.com/thesimonho/dodo/compare/v1.3.2...v1.3.3) (2026-04-11)
 
 
