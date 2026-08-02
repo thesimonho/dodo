@@ -37,6 +37,10 @@ On subsequent runs, dodo cross-references every existing doc against your curren
 
 Factual errors are fixed directly. Stale opinions or plans are flagged for your review.
 
+## Plan lifecycle
+
+Dodo archives only durable local plan documents that are intentionally kept as repository references. A tracker-backed delivery plan belongs to the project's delivery workflow; once it has been handed off to delivery tickets, it normally leaves no temporary `docs/plans/` file for Dodo to update or archive. Dodo does not create, reconstruct, or manage tracker state while updating references.
+
 ## Tips
 
 - References are your documentation, not dodo's. It respects your voice and structure — updates are surgical fixes, not rewrites.
