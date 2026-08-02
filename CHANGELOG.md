@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.4.1](https://github.com/thesimonho/dodo/compare/v1.4.0...v1.4.1) (2026-08-02)
+
+
+### Bug Fixes
+
+* clarify tracked plan lifecycle ([#23](https://github.com/thesimonho/dodo/issues/23)) ([02de203](https://github.com/thesimonho/dodo/commit/02de20387913b19f98793ae8fe0f211b73229744))
+
 ## [1.4.0](https://github.com/thesimonho/dodo/compare/v1.3.3...v1.4.0) (2026-07-05)
 
 
