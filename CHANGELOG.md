@@ -1,5 +1,16 @@
 # Changelog
 
+## [2.0.0](https://github.com/thesimonho/dodo/compare/v1.4.1...v2.0.0) (2026-08-10)
+
+
+### ⚠ BREAKING CHANGES
+
+* replaced codemaps with local READMEs ([#25](https://github.com/thesimonho/dodo/issues/25))
+
+### Features
+
+* replaced codemaps with local READMEs ([#25](https://github.com/thesimonho/dodo/issues/25)) ([c847615](https://github.com/thesimonho/dodo/commit/c8476156f89da72ba3631ffb0d44847a65520649))
+
 ## [1.4.1](https://github.com/thesimonho/dodo/compare/v1.4.0...v1.4.1) (2026-08-02)
 
 
