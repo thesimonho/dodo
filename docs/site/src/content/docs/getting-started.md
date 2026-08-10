@@ -16,7 +16,7 @@ Add the marketplace, then install the plugin:
 /plugin install dodo@artificial-jellybeans
 ```
 
-Skills are namespaced: `/dodo:do`, `/dodo:do codemaps`, etc.
+Skills are namespaced: `/dodo:do`, `/dodo:do readmes`, etc.
 
 ### npx skills
 
@@ -24,7 +24,7 @@ Skills are namespaced: `/dodo:do`, `/dodo:do codemaps`, etc.
 npx skills add thesimonho/dodo
 ```
 
-Skills are flat: `/dodo`, `/dodo codemaps`, etc.
+Skills are flat: `/dodo`, `/dodo readmes`, etc.
 
 ## First run
 
@@ -46,7 +46,7 @@ You can focus on a single documentation type:
 
 ```sh
 /dodo site
-/dodo codemaps
+/dodo readmes
 /dodo references
 ```
 
@@ -60,7 +60,7 @@ You can also target specific parts of a documentation type:
 
 ```sh
 /dodo:do the site FAQ
-/dodo:do add a codemap for the auth module
+/dodo:do add a readme for the auth module
 ```
 
 ## How it works

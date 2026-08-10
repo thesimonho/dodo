@@ -19,11 +19,11 @@ For factual errors (wrong file paths, outdated examples), dodo fixes them direct
 
 Both give you the same functionality. The difference is installation and invocation syntax:
 
-| | Claude Code plugin | npx skills |
-|---|---|---|
-| **Install** | `/plugin install dodo@artificial-jellybeans` | `npx skills add thesimonho/dodo` |
-| **Invoke** | `/dodo:do` | `/dodo` |
-| **With args** | `/dodo:do site` | `/dodo site` |
+|               | Claude Code plugin                           | npx skills                       |
+| ------------- | -------------------------------------------- | -------------------------------- |
+| **Install**   | `/plugin install dodo@artificial-jellybeans` | `npx skills add thesimonho/dodo` |
+| **Invoke**    | `/dodo:do`                                   | `/dodo`                          |
+| **With args** | `/dodo:do site`                              | `/dodo site`                     |
 
 ### Can I use dodo on a project that already has a docs site?
 
@@ -33,9 +33,9 @@ Yes. Even if your site uses a generator dodo doesn't recommend by default (Hugo,
 
 dodo compares your documentation against the current state of your codebase. It checks for dead file paths, outdated code examples, stale architecture descriptions, completed TODOs, and missing coverage for new features.
 
-### What are codemaps for?
+### What are the per-directory READMEs for?
 
-Codemaps are structured maps of your codebase designed specifically for AI agents. They let an agent understand your project's architecture without reading every file. Think of them as a table of contents that tells an agent where to look and how modules connect.
+They give an AI agent local context: what a directory is for, what each file does, and how it connects to the rest of the project. An agent that opens a directory has already found its documentation, so it can understand your architecture without reading every file. Your root README keeps its normal job and gains a short project-layout table.
 
 ### Can I run dodo on just part of my docs?
 
