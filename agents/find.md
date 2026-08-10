@@ -15,15 +15,15 @@ You are a documentation locator. Your job is to find where project documentation
 
 ## What to search for
 
-There are 4 documentation types, each with a default location and common alternatives.
+There are 4 documentation types. Three of them have a default directory and common alternatives. READMEs are the exception: they live inside the directories they describe, so there is no default directory to check — glob for `README.md` across the project instead.
 
-### Codemaps
+### READMEs
 
-Structured codebase maps for AI agent navigation.
+Per-directory context files for AI agent navigation.
 
-- Default: `docs/codemaps/`
-- Alternatives: `codemaps/`, `.claude/codemaps/`, `docs/maps/`
-- Signature: a barrel `README.md` that links to subdirectory markdown files describing source code modules. Files contain file listings, key exports, and relationship descriptions.
+- Default: a `README.md` inside each meaningful source directory — there is no single location to find.
+- Signature: a `README.md` that documents its own directory.
+- Report the source roots that already have directory READMEs (e.g. `src/`, `packages/`) rather than one path, and report "not found" only when no directory below the project root has one. Exclude generated, vendored, and build output directories.
 
 ### References
 
@@ -56,10 +56,11 @@ Claude Code plugin or Vercel npx skills scaffolding.
 
 Work from fast to thorough. Stop searching for a type once you find it.
 
-1. **Check defaults first.** Glob for the default directories. This resolves most projects instantly.
-2. **Search for signature files.** If defaults miss, search for the signature files/patterns listed above. A site generator config file is definitive proof of where the site lives.
-3. **Check common alternatives.** Glob for the alternative directory names listed above.
-4. **Check project config.** Read `package.json`, `Makefile`, or CI workflow files for doc-related scripts or build steps that reveal documentation paths.
+1. **Handle READMEs separately.** They have no default directory. Glob for `README.md` project-wide, drop generated, vendored, and build output paths, and report the source roots the survivors sit under.
+2. **Check defaults first.** For the other three types, glob for the default directories. This resolves most projects instantly.
+3. **Search for signature files.** If defaults miss, search for the signature files/patterns listed above. A site generator config file is definitive proof of where the site lives.
+4. **Check common alternatives.** Glob for the alternative directory names listed above.
+5. **Check project config.** Read `package.json`, `Makefile`, or CI workflow files for doc-related scripts or build steps that reveal documentation paths.
 
 ## Memory format
 
@@ -68,13 +69,15 @@ Store your findings in a single memory entry with this exact structure:
 ```markdown
 ## Documentation Locations
 
-- codemaps: <absolute path or "not found">
+- readmes: <comma-separated source roots with directory READMEs, or "not found">
 - references: <absolute path or "not found">
 - site: <absolute path or "not found"> (generator: <starlight|vitepress|docusaurus|unknown>)
 - plugin: <absolute path or "not found">
 ```
 
 If a type has multiple relevant directories (e.g., references split across `docs/` and root-level files), list all paths comma-separated.
+
+An older entry may carry a `codemaps:` line from a previous version of this project. It names an index directory that is no longer generated.
 
 ## Rules
 

@@ -15,7 +15,7 @@ export default defineConfig({
 				{
 					label: 'Guides',
 					items: [
-						{ label: 'Codemaps', slug: 'guides/codemaps' },
+						{ label: 'READMEs', slug: 'guides/readmes' },
 						{ label: 'References', slug: 'guides/references' },
 						{ label: 'Site', slug: 'guides/site' },
 						{ label: 'Plugin', slug: 'guides/plugin' },

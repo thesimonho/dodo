@@ -8,7 +8,7 @@ How many times have you said to an agent "update docs"? Now you can just `/dodo`
 
 You're working on a project. Your documentation is never up to date. There are too many people that need too many different things from your docs...
 
-- **AI agents** need structured codemaps so they can navigate your codebase without reading every file
+- **AI agents** want a README in important directories so local knowledge can be auto-loaded.
 - **Contributors** need reference material, development guides, and plans
 - **End Users** need a documentation website that teaches them how to use your app
 - **Developers** want to just give their agent your code and say "make it work"
@@ -27,8 +27,8 @@ It looks at what documentation you have (or don't have), and either updates it o
 
 | Type           | Audience     | Default location | What it does                                                    |
 | -------------- | ------------ | ---------------- | --------------------------------------------------------------- |
+| **READMEs**    | AI agents    | each source dir  | Per-directory context with important local information          |
 | **References** | Contributors | `docs/`          | Architecture docs, guides, plans, TODOs                         |
-| **Codemaps**   | AI agents    | `docs/codemaps/` | Structured codebase maps so agents can actually find things     |
 | **Site**       | End users    | `docs/site/`     | An end user documentation website deployed to GitHub Pages      |
 | **Plugin**     | Developers   | `docs/plugin/`   | Turns your docs into skills that developers add to their agents |
 
@@ -50,7 +50,7 @@ Add the plugin:
 /plugin install dodo@artificial-jellybeans
 ```
 
-Skills are namespaced: `/dodo:do`, `/dodo:do codemaps`, etc.
+Skills are namespaced: `/dodo:do`, `/dodo:do readmes`, etc.
 
 ### npx skills
 
@@ -58,7 +58,7 @@ Skills are namespaced: `/dodo:do`, `/dodo:do codemaps`, etc.
 npx skills add thesimonho/dodo
 ```
 
-Skills are flat: `/dodo`, `/dodo codemaps`, etc.
+Skills are flat: `/dodo`, `/dodo readmes`, etc.
 
 Both methods give you the same functionality, just different invocation syntax. Pick whichever fits your setup.
 
